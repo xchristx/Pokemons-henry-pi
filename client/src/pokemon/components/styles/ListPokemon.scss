@@ -1,0 +1,124 @@
+*{
+    font-family: "Poppins", sans-serif;
+}
+
+$colorsMap: (
+    Bug: #26de81,
+    Dragon: rgb(180, 43, 107),
+    Electric: #fed330,
+    Fairy: #FF0069,
+    Fighting: #30336b,
+    Fire: #f0932b,
+    Flying: #43c5c5,
+    Grass: #00b894,
+    Ground: #EFB549,
+    Ghost: #a55eea,
+    Ice: #74b9ff,
+    Normal: #95afc0,
+    Poison: #6c5ce7,
+    Psychic: #a29bfe,
+    Rock: #2d3436,
+    Water: #0190FF,
+    Dark: darkgrey,
+    Steel: grey,
+    Unknown: rgba(65, 38, 38, 0.233),
+    Shadow: rgba(65, 38, 38, 0.233)
+);
+
+.container{
+    display: grid;
+    grid-template-columns: 12% 76% 12%;
+    justify-content: space-around;
+    gap: 18px;
+    margin: 0 auto;
+    z-index: 20;
+}
+.container-cards{
+    grid-column:2;
+    display: grid;
+    grid-template-columns: 23.5% 23.5% 23.5% 23.5%;
+    user-select: none;
+    width: 100%;
+    justify-content: space-between;
+    gap: 18px;
+    margin: 0 auto;
+}
+
+.container__card-container{
+    width: 100%;
+    transform: translate(50% 50%);
+    &:hover{
+        transform: translateY(-6px);
+    }
+}
+
+@each $name, $value in $colorsMap {
+    .card-container-#{$name} {
+        background: radial-gradient(circle at 50% 0%, $value 1%, white);
+        padding: 5px 10px 10px;
+        box-shadow: 0 2px 5px rgb(163, 163, 163 );
+        border-radius: 10px;
+        img{
+            display: block;
+            width: 100%;
+            margin: 2px auto;
+            max-height: 200px;
+            position: relative;
+            cursor: pointer;
+        }
+    }
+}
+.card-container__card-head{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-around;
+    .card-head__etiqueta{
+        width: 100px;
+        background-color: #fff;
+        font-size: 0.65rem;
+        text-align: center;
+        border-radius: 25px;
+        padding: 5px 0;
+        
+    }
+}
+
+.card-container__card-name{
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin: 0;
+}
+.card-container__card-types{
+    display: flex;
+    justify-content: space-around;
+    margin: 7%;
+    
+}
+.span-card{
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+@each $name, $value in $colorsMap {
+    .span-types-#{$name}{
+        @extend .span-card;
+        width: 90px;
+        text-align: center;
+
+        padding: 3px;
+        border-radius: 20px;
+        color: white ;
+        background-color: $value;
+    }
+}
+.button-link{
+    display: block;
+    font-size: 0.6rem;
+    padding: auto;
+    text-align: center;
+    border: solid darkgrey 1px;
+    border-radius: 5px;
+    color: rgb(20, 20, 20);
+    text-decoration: none;
+}

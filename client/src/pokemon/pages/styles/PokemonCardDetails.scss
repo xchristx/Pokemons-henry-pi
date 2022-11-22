@@ -1,0 +1,149 @@
+
+$colorsMap: (
+    Bug: #26de81,
+    Dragon: rgb(180, 43, 107),
+    Electric: #fed330,
+    Fairy: #FF0069,
+    Fighting: #30336b,
+    Fire: #f0932b,
+    Flying: #43c5c5,
+    Grass: #00b894,
+    Ground: #EFB549,
+    Ghost: #a55eea,
+    Ice: #74b9ff,
+    Normal: #95afc0,
+    Poison: #6c5ce7,
+    Psychic: #a29bfe,
+    Rock: #2d3436,
+    Water: #0190FF,
+    Dark: darkgrey,
+    Steel: grey,
+    Unknown: rgba(65, 38, 38, 0.233),
+    Shadow: rgba(65, 38, 38, 0.233)
+);
+
+
+.card-details__container{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
+    width: 65%;
+    align-items: center;
+    margin: 25px auto;
+    padding: 5px;
+    justify-content: space-between;
+}
+.card-details__title{
+    background-color: #333;
+    margin: 0;
+    margin-bottom: 15px;
+    border-radius: 0.5rem;
+    padding: 10px;
+    color:#fff;
+    grid-column-start: 4;
+    grid-column-end: 13;
+    text-align: center;
+}
+
+.card-details__img-card{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    background-color: #F2F2F2;
+    border-radius: 0.5rem;
+    width: 30rem;
+    margin: 0;
+    img{
+        max-width: 100%;
+    }
+}
+.card-details__features{
+    grid-column-start: 4;
+    grid-column-end: 13;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 1px 2px;
+    background-color: #30A7D7;
+    border-radius: 5px;
+    justify-content: space-around;
+
+    .card-details__features-item{
+        text-align: center;
+        .features-item__name{
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin: 0.5rem;
+        }
+        .features-item__value{
+            color: #333;
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 0.5rem;
+        }
+    }
+}
+.card-details__stats{
+    grid-column-start: 4;
+    grid-column-end: 13;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 1px 2px;
+    background-color: #A4A4A4;
+    border-radius: 5px;
+    justify-content: space-around;
+    margin-top: 12px;
+
+    .card-details__stats-title{
+        grid-column-start: 1;
+        grid-column-end: 4;
+        text-align: center;
+        color: black;
+        margin: 5px;
+    }
+
+    .card-details__stats-item{
+        text-align: center;
+        .stats-item__name{
+            color: rgba(12, 12, 12, 0.938);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin: 0.5rem;
+        }
+        .stats-item__value{
+            color: #333;
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 0.5rem;
+        }
+    }
+}
+.card-details__types{
+    grid-column-start: 4;
+    grid-column-end: 13;
+    display: grid;
+    grid-template-columns: 30% auto auto;
+    justify-content: space-around;
+
+    .card-details__types-title{
+        color: #333;
+        text-align: center;
+    }
+    @each $name, $value in $colorsMap {
+        .types-item-#{$name}{
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            width: 120px;
+            text-align: center;
+            padding: 3px;
+            border-radius: 20px;
+            color: #f2f2f2 ;
+            background-color: $value;
+        }
+    }
+}

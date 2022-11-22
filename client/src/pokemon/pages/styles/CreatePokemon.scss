@@ -1,0 +1,191 @@
+
+$colorsMap: (
+    Bug: #26de81,
+    Dragon: rgb(180, 43, 107),
+    Electric: #fed330,
+    Fairy: #FF0069,
+    Fighting: #30336b,
+    Fire: #f0932b,
+    Flying: #43c5c5,
+    Grass: #00b894,
+    Ground: #EFB549,
+    Ghost: #a55eea,
+    Ice: #74b9ff,
+    Normal: #95afc0,
+    Poison: #6c5ce7,
+    Psychic: #a29bfe,
+    Rock: #2d3436,
+    Water: #0190FF,
+    Dark: darkgrey,
+    Steel: grey,
+    Unknown: rgba(65, 38, 38, 0.233),
+    Shadow: rgba(65, 38, 38, 0.233)
+);
+
+
+.create-pokemon__container{
+    box-sizing: border-box;
+    display: grid;
+    margin: 25px auto;
+    width: 70%;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.create-pokemon__card-container{
+    grid-column: 2;
+    grid-row: span 4;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    
+    display: grid;
+   
+    img{
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+.card-container__card-types{
+    display: flex;
+    justify-content: space-around;
+    margin: 7%;
+    
+}
+.span-card{
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+@each $name, $value in $colorsMap {
+    .span-types-#{$name}{
+        @extend .span-card;
+        width: 90px;
+        text-align: center;
+
+        padding: 3px;
+        border-radius: 20px;
+        color: white ;
+        background-color: $value;
+    }
+}
+.create-pokemon-check-boxes{
+    grid-column: 2;
+    grid-row-start: 5;
+    grid-row-end:6 ;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    .check-box-title{
+        grid-column: span 5;
+        margin: 0;
+    }
+}
+.create-pokemons__checkbox-message{
+    display: none;
+}
+.create-pokemons__checkbox-message-enabled{
+    font-size: 0.8rem;
+    color: #bb2929;
+    grid-column: span 5;
+}
+.create-pokemon__form{
+    display: grid;
+    gap: 4px;
+    background-color: #f2f2f29c;
+    border-radius: 5px;
+    grid-row-start: 1;
+    grid-row-end:11 ;
+}
+.create-pokemon__label{
+    display: contents;
+    font-weight: 600;
+    min-height: 30px;
+    cursor: pointer;
+}
+.create-pokemon__input{ 
+    border-radius: 3px;
+    background-color: rgba(51, 51, 51, 0.158);
+    color: #333;
+    height: 33px;
+    line-height: 33px;
+    padding: 0 40px;
+    border: 3px solid transparent;
+    transition: 0.5s ease all;
+
+
+    &:focus{
+        outline: none;
+        box-shadow: 3px 0px 20px rgba(163, 163, 163, 0.76);
+    }
+
+}
+
+.create-pokemon__input-error{
+    @extend .create-pokemon__input;
+    border: 3px solid #bb2929;
+    background-color: #e2bbbb;
+    box-shadow: 3px 0px 20px rgb(226, 142, 142)
+}
+.create-pokemon__input-success{
+    @extend .create-pokemon__input;
+    border: 3px solid #1c488d;
+    background-color: #bcd5ff;
+    box-shadow: 3px 0px 6px rgba(28, 72, 141, 0.76);
+}
+.create-pokemons__input-message{
+    font-size: 0.8rem;
+    color: #bb2929;
+    display: none;
+}
+.create-pokemons__input-message-enabled{
+    @extend .create-pokemons__input-message;
+    display: block;
+}
+.create-pokemon__button{
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    .create-pokemon__button-btn{
+        height: 33px;
+        line-height: 33px;
+        width: 30%;
+        background: #333;
+        color: #fff;
+        font-weight: bold;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: ease all;
+
+        &:active{
+            transform: scale(0.98);
+        }
+        &:hover{
+            box-shadow: 3px 0px 22px 1px rgba(163, 163, 163, 0.952);
+        }
+        &:disabled{
+            background-color: rgba(51, 51, 51, 0.753);
+            cursor:default;
+            &:active{ transform: none;}
+            &:hover{
+                box-shadow: none;
+            }
+        }
+    }
+
+}
+.create-pokemon__error-create{
+    background-color: #e2bbbb;
+    border-radius: 3px;
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+        p{
+            margin: 5px;
+        }
+}
+.create-pokemon__success-create{
+    @extend .create-pokemon__error-create;
+    background-color: #aae7af;
+}

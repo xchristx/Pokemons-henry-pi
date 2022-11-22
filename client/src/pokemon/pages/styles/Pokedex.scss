@@ -1,0 +1,19 @@
+.container-head{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    justify-content: space-between;
+    width: 72%;
+    margin: 0 auto;
+}
+hr{
+    width: 80%;
+}
+.img_lateral{
+    position: fixed;
+    width: 10%;
+    opacity: 4%;
+    z-index: 10 inherit;
+    height: 100vh;
+    z-index: 10;
+}
+

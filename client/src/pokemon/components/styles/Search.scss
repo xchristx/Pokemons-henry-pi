@@ -1,0 +1,27 @@
+.search-container{
+    justify-content: flex-end;
+    display: flex;
+
+}
+.search-form{
+    margin: 0 0.4rem;
+
+}
+.search-refresh-icon{
+    cursor: pointer;
+}
+@keyframes anim{
+    0%{color: rgb(255, 255, 255);}
+    60%{color: rgb(236, 235, 235);}
+    70%{color: rgb(156, 154, 154);}
+    90%{color: rgb(66, 65, 65);}
+    100%{color: #333;}
+}
+.pokemon-not-found{
+    animation: anim 1.6s;
+    position: absolute;
+    background-color: #333;
+    top: 35px;
+    border-radius: 2px;
+    color: white;
+}
